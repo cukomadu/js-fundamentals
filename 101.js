@@ -99,16 +99,27 @@ console.assert(isNegative(10) === false)
 console.assert(isNegative(0) === false)
 console.assert(isNegative(-999) === true)
 
+// Part 5
 
 // Now, modify your sum function again, so that it 
 // will return null if any of the inputs is negative.
 // To avoid repeating yourself, use your isNegative 
 // function inside your sum funciton ***
 
+var sum = function(num1, num2) {
+	if ((isNegative(num1)) || (isNegative(num2))) {
+		return null
+	}
+		else {
+			var sumTotal = num1 + num2
+		}
+	return sumTotal
+}
+
 console.assert(sum(5,-5) === null)
 
 
-// Part 5
+// Part 6
 
 // Write a function that will find the minimum of four 
 // input numbers. You can do it using nested if statements,
@@ -172,6 +183,7 @@ console.assert(NUMBER === 48)
 ORACLE = 'YES'
 conditionallyInvoke(doubleGlobalNumber)
 console.assert(NUMBER === 96)
+
 
 // Part 10
 
