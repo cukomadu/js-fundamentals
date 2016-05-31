@@ -66,6 +66,15 @@ console.assert(average(100,200) === 150)
  inputs is not a number, it will return "null."
  */
 
+var sum = function(num1, num2) {
+	if ((typeof num1 === 'number') && (typeof num2 === 'number')) {
+		var sumTotal = num1 + num2
+	}
+		else {
+			return null
+		}
+	return sumTotal
+}
 
 console.assert(sum(867, 5309) === 6176);
 console.assert(sum('867', 5309) === null);
@@ -76,6 +85,15 @@ console.assert(sum(true, 5) === null);
 
 // Write a function called isNegative that will tell 
 // whether a number is negative or not. 
+
+var isNegative = function (num){
+	if (num < 0){
+		return true
+	}
+	else {
+		return false
+	}
+}
 
 console.assert(isNegative(10) === false)
 console.assert(isNegative(0) === false)
