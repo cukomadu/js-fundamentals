@@ -125,6 +125,32 @@ console.assert(sum(5,-5) === null)
 // input numbers. You can do it using nested if statements,
 // boolean operators, or both (but not neither). 
 
+var minimum = function(n1,n2,n3,n4) {
+	if (n1 < n2 === true) {
+		var runnerUp1 = n1
+	} 
+		else {
+			var runnerUp1 = n2
+		}
+		console.log(runnerUp1)
+	if (n3 < n4 === true){
+		var runnerUp2 = n3
+	} 
+		else {
+			var runnerUp2 = n4
+		}
+    	console.log(runnerUp2)
+	if (runnerUp1 < runnerUp2 === true) {
+		var winner = runnerUp1
+	} 
+		else {
+		var winner = runnerUp2
+	}
+		console.log(winner)
+	return winner
+}
+
+
 console.assert(minimum(1,2,4,0) === 0)
 console.assert(minimum(1000,-2,-99,50) === -99)
 console.assert(minimum(-1000,-2,-99,50) === -1000)
