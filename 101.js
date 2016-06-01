@@ -132,21 +132,18 @@ var minimum = function(n1,n2,n3,n4) {
 		else {
 			var runnerUp1 = n2
 		}
-		console.log(runnerUp1)
 	if (n3 < n4 === true){
 		var runnerUp2 = n3
 	} 
 		else {
 			var runnerUp2 = n4
 		}
-    	console.log(runnerUp2)
 	if (runnerUp1 < runnerUp2 === true) {
 		var winner = runnerUp1
 	} 
 		else {
 		var winner = runnerUp2
 	}
-		console.log(winner)
 	return winner
 }
 
@@ -162,6 +159,13 @@ console.assert(minimum(1000,-2,99,50) === -2)
 // Using logical operators, write a function that will
 // return true if either input is a string, but not 
 // both or neither. 
+
+var justOneString = function(input1, input2){
+	if(((typeof input1 === 'string') && (typeof input2 !== 'string')) || ((typeof input2 === 'string') && (typeof input1 !== 'string'))){
+		return true
+    }
+    	return false
+}
 
 console.assert(justOneString('a',5) === true)
 console.assert(justOneString(6,'dotron') === true)
