@@ -231,7 +231,15 @@ console.assert(NUMBER === 96)
 
 // Make the following assertion work:
 
+var factory = function() {
+   	var output = function(){
+    	return 'hello world'
+	}   
+ 	return output()	
+}
+
 console.assert(factory()() === 'hello world')  // INCEPTION!
+
 
 
 // Part 11
