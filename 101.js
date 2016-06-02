@@ -192,18 +192,23 @@ var doubleGlobalNumber = function() {
 	NUMBER = NUMBER * 2
 }
 
+var doTwice = function(func) {
+	func(func())
+}
+
+
 doTwice(incrementGlobalNumber)
 console.assert(NUMBER === 12)
 
 doTwice(doubleGlobalNumber)
-console.assert(NUMBER === 48)
+console.assert(NUMBER === 48) 
 
 // Part 9
 
 // Write a function called conditionallyInvoke that takes a function
 // as input. It should invoke that input function only if 
 // the value of a certain global variable, called ORACLE, is 
-// "YES." Otherwise, it will does nothing.
+// "YES." Otherwise, it will do nothing.
 
 var ORACLE = 'NO'
 
