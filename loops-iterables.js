@@ -22,6 +22,20 @@ console.assert(sumOfArray([10, 9, 8]) === 27);
 // Write a function maxOfArray() that takes an array of
 // numbers as an argument and finds the highest number.
 
+var maxOfArray = function(arrymax) {
+	var max = 0
+    for (var i = 0; i < arrymax.length; i++) {
+     	if(typeof arrymax[i] === 'number'){
+     		if (arrymax[i] > max) {
+         		max = arrymax[i]   
+        	}
+     	} else {
+            return max = NaN
+        }
+    }
+    return max
+}
+
 
 console.assert(maxOfArray([2,4,3]) === 4)
 console.assert(maxOfArray([10,9,8,100,7,6]) === 100)
@@ -34,8 +48,14 @@ console.assert(isNaN(maxOfArray([1,2,'bucklemyshoe'])))
  * and returns true if it is a vowel, false otherwise.
  */
 
-function isVowel(symbol){
-    // YOUR CODE HERE
+var isVowel = function(symbol){
+    var vowels = ["a","e","i","o","u","A","E","I","O","U"]
+    for(var i = 0; i < vowels.length; i++){
+        if(vowels[i] === symbol){
+            return true
+        }
+    }
+    return false
 }
 
 console.assert(isVowel(0) === false);
@@ -52,6 +72,14 @@ console.assert(isVowel("E") === true);
  * reverse("skoob") should return the
  * string "books".
  */
+
+ var reverse = function(string) {
+    var reArrange = ''
+    for (var i = string.length - 1; i >= 0; i--) {
+        reArrange = reArrange + string[i];
+    }
+    return reArrange;
+}
 
 
 console.assert(reverse("books") === "skoob")
