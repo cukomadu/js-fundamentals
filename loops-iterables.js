@@ -97,6 +97,23 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  */
 
 
+var fizzbuzz = function(N){
+   var newString = ''
+    for(var i = 1; i <= N; i++){
+        if((N[i] % 3 === 0) && (N[i] % 5 === 0)){
+           	  	N[i] = "fizzbuzz"
+           } else if(N[i]% 5 === 0) {
+              	N[i] = "buzz"
+           } else if(N[i] % 3 === 0) {
+           		N[i] = "fizz"
+           } else {
+           		N[i] = "."
+           }
+        newString = newString + N[i]
+    }
+    return newString
+}
+
 
 console.assert(fizzbuzz(1) === ".")
 console.assert(fizzbuzz(2) === "..")
@@ -112,9 +129,22 @@ console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
 
-function findLongestWord(sentence){
-    // YOUR CODE HERE
+
+var findLongestWord = function(sentence) {	
+	var newSentence = ''
+    for (var i = 0; i < sentence.length; i++) {
+        var splitSentence = sentence.split(' ')
+        log(splitSentence)
+        var longest = splitSentence[0]
+     		if (splitSentence[i].length > longest.length) {
+         		 longest = splitSentence[i]
+                 newSentence = longest
+        	}
+    }
+    return newSentence
 }
+
+
 
 console.assert(findLongestWord("a book full of dogs") === "book")
 console.assert(findLongestWord("don't mess with Texas") === "Texas")
@@ -128,6 +158,13 @@ console.assert(findLongestWord("don't mess with Texas") === "Texas")
  * - if no GCD exists, return 1
  */
 
+var GCD = function(num1, num2) {
+    if ( ! num2) {
+        return num1;
+    }
+
+    return GCD(num2, num1 % num2);
+};
 
 
 console.assert(GCD(5,1) === 1);
