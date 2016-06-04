@@ -96,22 +96,20 @@ console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew
  * - for every number that is a multiple of 3 and 5, return "fizzbuzz"
  */
 
-
 var fizzbuzz = function(N){
-   var newString = ''
-    for(var i = 1; i <= N; i++){
-        if((N[i] % 3 === 0) && (N[i] % 5 === 0)){
-           	  	N[i] = "fizzbuzz"
-           } else if(N[i]% 5 === 0) {
-              	N[i] = "buzz"
-           } else if(N[i] % 3 === 0) {
-           		N[i] = "fizz"
-           } else {
-           		N[i] = "."
-           }
-        newString = newString + N[i]
-    }
-    return newString
+	var newString = ''
+	for(var i = 1; i <= N; i++) {
+        if(i % 3 === 0 && i % 5 === 0){
+        	newString = newString + 'fizzbuzz'
+        } else if(i % 3 === 0){
+           	newString = newString + 'fizz' 
+        } else if(i % 5 === 0){
+            newString = newString + 'buzz'
+        } else {
+            newString = newString + '.'
+        }
+	}
+	return newString
 }
 
 
@@ -129,25 +127,20 @@ console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
 
-
-var findLongestWord = function(sentence) {	
-	var newSentence = ''
-    for (var i = 0; i < sentence.length; i++) {
-        var splitSentence = sentence.split(' ')
-        log(splitSentence)
-        var longest = splitSentence[0]
-     		if (splitSentence[i].length > longest.length) {
-         		 longest = splitSentence[i]
-                 newSentence = longest
-        	}
-    }
-    return newSentence
+var findLongestWord = function(stringOfWords){
+	var splitString = stringOfWords.split(' ')
+	var longestWord = splitString[0].length
+	for(var i = 1; i < splitString.length; i++){
+       	if(splitString[i].length > longestWord){
+			longestWord = splitString[i]
+		} 
+	}
+	return longestWord
 }
 
 
-
 console.assert(findLongestWord("a book full of dogs") === "book")
-console.assert(findLongestWord("don't mess with Texas") === "Texas")
+console.assert(findLongestWord("dont mess with Texas") === "Texas")
 
 
 
@@ -158,13 +151,7 @@ console.assert(findLongestWord("don't mess with Texas") === "Texas")
  * - if no GCD exists, return 1
  */
 
-var GCD = function(num1, num2) {
-    if ( ! num2) {
-        return num1;
-    }
 
-    return GCD(num2, num1 % num2);
-};
 
 
 console.assert(GCD(5,1) === 1);
