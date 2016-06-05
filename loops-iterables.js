@@ -127,12 +127,14 @@ console.assert(fizzbuzz(10) === "..fizz.buzzfizz..fizzbuzz")
  * i.e. findLongestWord("a book full of dogs") should return "book"
  */
 
+var longestWord = ''
 var findLongestWord = function(stringOfWords){
 	var splitString = stringOfWords.split(' ')
-	var longestWord = splitString[0].length
+	var longest = splitString[0].length
 	for(var i = 1; i < splitString.length; i++){
-       	if(splitString[i].length > longestWord){
-			longestWord = splitString[i]
+       	if(splitString[i].length > longest){
+			longest = splitString[i].length
+            longestWord = splitString[i]
 		} 
 	}
 	return longestWord
@@ -151,6 +153,37 @@ console.assert(findLongestWord("dont mess with Texas") === "Texas")
  * - if no GCD exists, return 1
  */
 
+var remainder
+var greatestCD
+var GCD = function(n1,n2){
+    	// dividend - the number being divided
+  		var dividend = n1 
+        // divisor - the number that will divide the dividend
+  		var divisor = n2 
+        // remainder - the number that remains after division of dividend by divisor
+        var remainder = dividend % divisor
+        
+        // Condition to determine if n2 is the GCD
+        if(remainder === 0){
+            greatestCD = divisor
+        }
+    	
+	    	// Division Loop (when remainder is not equal to zero)
+	        while(remainder > 0){
+	            // divisor from previous calculation becomes the new dividend in the loop
+	            dividend = n2
+	            // remainder from previous calculation becomes the new divisor
+	            divisor  = remainder
+	            // perform new remainder calculation using current dividend and divisor 
+	            remainder = dividend % divisor
+	            // Loop End Condition
+	    		remainder === 0
+	            // When remainder becomes zero, then the divisor from the last 	
+	            //calculation is the gcd
+	            greatestCD = divisor
+        	}
+ 	return greatestCD       
+}
 
 
 
