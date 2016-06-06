@@ -15,23 +15,21 @@ console.assert(squareDance([3,6,9,3])[0] === 9)
 
 // PART 1: write a function called nicer(). It should clean up the language in its input sentence.
 
-var trash = []
-var niceSentence = ''
 var nicer = function(badSentence){
+	var niceSentence = ''
     var badWordsDictionary = ["heck", "darn", "crappy", "dang", "shit", "fuck", "what the hell", "what the fuck"]
     var splitSentence = badSentence.split(' ')
-    //log("this is initial split ==" + ' ' + splitSentence)
+    // log("this is initial split ==" + ' ' + splitSentence)
     for(var i = 0; i < splitSentence.length; i++){
         var counter = splitSentence[i]
     	for(var j = 0; j < badWordsDictionary.length; j++){
         	if(badWordsDictionary[j] === counter){
-                trash.push(counter)
-            } else {
-                niceSentence = niceSentence + counter
+                splitSentence.splice(i,1)
+                // log(splitSentence)
             }
         }
     }
-    return niceSentence
+    return  niceSentence = splitSentence.join(' ')
 }
 
 
@@ -41,14 +39,15 @@ console.assert(nicer("here son, your crappy sandwich is on the dang plate.") ===
 
 // PART 2: write a function called capitalizeAll(). It should take as input a sentence and capitalize the first letter of every word in the sentence. 
 
-var newSentence = ''
+var newSentence = []
 var capitalizeAll = function(sentence){
     var splitSentence = sentence.split(' ')
+    //log(splitSentence)
     for (var i = 0; i < splitSentence.length; i++){
        var capital = splitSentence[i][0].toUpperCase() + splitSentence[i].substring(1, splitSentence[i].length + i)
-       newSentence = newSentence + ' ' + capital
+       newSentence.push(capital)
     }
-    return newSentence
+    return newSentence = newSentence.join(' ')
 }
 
 
@@ -59,20 +58,31 @@ console.assert(capitalizeAll('every day is like sunday.') === 'Every Day Is Like
 var paragraph = 'it was a fine morning. the wine was good. light slanted in through the cafe window.'
 
 var properSentences = function(sentence){
-    var splitSentence = sentence.split(/["."\"?"\"!"]/)
-   // log(splitSentence)
-    for (var i = 0; i < splitSentence.length; i++){
-    var secondSplit = splitSentence[i].split(' ')
-   // log(secondSplit)
-    var proper = secondSplit[0].toUpperCase() + secondSplit.join(' ')
-        newSentence = newSentence + ' ' + proper  
+    var newSentence = []
+    var sentsArray = sentence.split(/["."\"?"\"!"] /)
+    for (var i = 0; i < sentsArray.length; i++){
+            var proper = sentsArray[i][0].toUpperCase() + sentsArray[i].substring(1, sentsArray[i].length)
+        	newSentence.push(proper) 
     }
-    return newSentence
+    return newSentence = newSentence.join('. ')
 }
 
 console.assert(properSentences(paragraph) === "It was a fine morning. The wine was good. Light slanted in through the cafe window.")
 
 // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string. 
+
+var iPutTheFunIn = function(string){
+    var newString = ''
+    var middleOfString = string.length / 2
+    for(var i = 0; i < string.length; i++){
+        if(i === middleOfString - 1){
+            newString = newString + string[i] + "fun"
+        } else {
+   		 	newString = newString + string[i]
+        }
+    }
+    return newString
+}
 
 console.assert(iPutTheFunIn("funerary") === "funefunrary")
 console.assert(iPutTheFunIn("reds") === "refunds")
@@ -80,6 +90,10 @@ console.assert(iPutTheFunIn("reds") === "refunds")
 // PART 5: write a function called pipeline(). it should take three inputs: (1) a starting value, (2) a function, and (3) another function. it should use functions (2) and (3) on the starting value, one after the other, and return a new value that has been processed by both function (2) and function (3).
 
 // the following three tests all correspond to the pipeline() function.
+
+var pipeline = function(value, func1, func2){      
+       return 	func2(func1(value))
+}
 
 // test 1
 var paragraph = 'mom bring your crappy self in here. i want a dang sandwich.'
@@ -103,6 +117,7 @@ var exclaimAll = function(arr) {
 	for (var i = 0; i < arr.length; i ++) {
 		newArr.push(arr[i] + '!')
 	}
+	return newArr
 }
 
 var result = pipeline([10,20,30],squareDance,exclaimAll)
