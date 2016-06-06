@@ -1,5 +1,14 @@
 // PART 0: Write a function called squareDance() that squares each number in an array.
 
+var squareDance = function(numsArray){
+    var squareArray = []
+	for(var i = 0; i < numsArray.length; i++){
+        var square = numsArray[i] * numsArray[i]
+        squareArray.push(square)
+    }
+    return squareArray
+}
+
 console.assert(squareDance([1, 2])[1] === 4)
 console.assert(squareDance([5,10,15])[2] === 225)
 console.assert(squareDance([3,6,9,3])[0] === 9)
